@@ -12,7 +12,7 @@ java {
 		languageVersion = JavaLanguageVersion.of(21)
 	}
 }
-
+2
 repositories {
 	mavenCentral()
 }
@@ -20,9 +20,20 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	implementation 'io.r2dbc:r2dbc-mssql'
+	testImplementation 'io.r2dbc:r2dbc-mssql'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:mssqlserver'
+	testImplementation 'com.microsoft.sqlserver:mssql-jdbc'
+
+	implementation 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
